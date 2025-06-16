@@ -1,7 +1,7 @@
 FROM ubuntu:20.04 as build
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends ca-certificates curl gcc \
+    && apt-get install -y --no-install-recommends ca-certificates curl gcc musl-dev \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /go/src/github.com/rainbend/ollama-pull
