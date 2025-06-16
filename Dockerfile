@@ -18,7 +18,7 @@ RUN --mount=type=cache,target=/root/.cache/go-build \
 
 FROM ubuntu:20.04
 
-COPY --from=build /workspace/bin/ollama-pull /usr/bin/
+COPY --from=build /go/src/github.com/rainbend/ollama-pull/bin/ollama-pull /usr/bin/
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends ca-certificates \
