@@ -1,4 +1,4 @@
-FROM ubuntu:20.04 as build
+FROM ubuntu:20.04 AS build
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends ca-certificates curl gcc musl-dev build-essential \
@@ -14,7 +14,7 @@ COPY . .
 ARG GOFLAGS="'-ldflags=-w -s'"
 ENV CGO_ENABLED=1
 RUN --mount=type=cache,target=/root/.cache/go-build \
-    go build -trimpath -buildmode=pie -o /bin/ollama-pull main.go
+    go build -trimpath -buildmode=pie -o bin/ollama-pull main.go
 
 FROM ubuntu:20.04
 
