@@ -23,3 +23,5 @@ COPY --from=build /go/src/github.com/rainbend/ollama-pull/bin/ollama-pull /usr/b
 RUN apt-get update \
     && apt-get install -y --no-install-recommends ca-certificates \
     && rm -rf /var/lib/apt/lists/*
+
+ENTRYPOINT ["/usr/bin/ollama-pull"]
